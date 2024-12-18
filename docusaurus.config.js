@@ -23,7 +23,8 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Life_Checkpoint', // Usually your GitHub org/user name.
-  projectName: 'blog', // Usually your repo name.
+  projectName: 'lifecheckpoint.github.io', // Usually your repo name.
+  deploymentBranch: 'pages',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
