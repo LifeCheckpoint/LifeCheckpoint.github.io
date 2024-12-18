@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklife_checkpoint_github_io=self.webpackChunklife_checkpoint_github_io||[]).push([[121],{8070:e=>{e.exports=JSON.parse('{"tags":[{"label":"intro","permalink":"/blog/tags/intro","count":1}]}')}}]);
