@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklife_checkpoint_github_io=self.webpackChunklife_checkpoint_github_io||[]).push([[1903],{1912:i=>{i.exports=JSON.parse('{"blogBasePath":"/LifeCheckpoint.github.io/blog","blogTitle":"Blog","authorsListPath":"/LifeCheckpoint.github.io/blog/authors"}')}}]);

@@ -1,5 +1,14 @@
 ---
 description: Create a doc page with rich content.
+sidebar_label: 'Greeting you'
+
+slug: greetings
+title: Greetings!
+authors:
+  - name: Life_Checkpoint
+    title: Bloggg
+    url: https://github.com/LifeCheckpoint/LifeCheckpoint.github.io.git
+tags: [greetings]
 ---
 
 # Hello from Docusaurus
