@@ -2,10 +2,8 @@
 description: 好难的积分啊...
 sidebar_label: 'asin x acos x atan x'
 title: asin x acos x atan x 的积分处理思路
-authors:
-  - name: Life_Checkpoint
+authors: [Life_Checkpoint]
 tags: [math]
-sidebar_position: 1
 ---
 
 
@@ -113,13 +111,13 @@ $\begin{aligned}  &=\int\frac{u^2 \left(\mathrm{i} \log ^2u-4 \mathrm{i} \log u+
 
 $\begin{aligned}  &\int\frac{(u-1) \left(8 (u+1)+(u+1) \log ^2u-4 (u-1) \log u\right)}{u^2+6 u+1}\mathrm{d}u\\ =&\int \frac{8(u+1)(u-1)}{u^2+6u+1}\mathrm{d}u+\int \frac{(u+1)(u-1)\log^2u}{u^2+6u+1}\mathrm{d}u-\int \frac{4(u-1)^2\log u}{u^2+6u+1}\mathrm{d}u \end{aligned}$
 
-### 4. 击破\log^0  
+### 4. 击破 $\log^0$ 
 
 对于 $\log^0$ ，可以用三角换元简单积出
 
 $\begin{aligned}  \int \frac{8(u^2-1)}{u^2+6u+1}\mathrm{d}u&=\int \frac{(u+3)^2-8-6(u+3)+16}{(u+3)^2-8}\mathrm{d}u\\ &=\int \mathrm{d}u-3\int \frac{\mathrm{d}(u+3)^2}{(u+3)^2-8}+16\int \frac{1}{(u+3)^2-8}\mathrm{d}(u+3)\\ &=u-3\log((u+3)^2-8)+2\sqrt{2}\log \frac{2\sqrt{2}-(u+3)}{2\sqrt{2}+(u+3)} \end{aligned}$
 
-### 5. 击破\log^2  
+### 5. 击破 $\log^2$  
 
 中间的 $\log^2$ 算是魔王积分，式子比较复杂，况且我们的工具本来也不多，只有有理分解能简化一些计算量.
 
@@ -177,7 +175,7 @@ $\begin{aligned}  \int \frac{\log^2u}{u+3-2\sqrt{2}}\mathrm{d}u&=\log\left( \fra
 
 好感动...终于终结了最难的那个对数积分. 是该计算最后剩下的 $\log^1$ 了.
 
-### 6. 击破\log^1  
+### 6. 击破 $\log^1$
 
 $\begin{aligned}  \int \frac{4(u-1)^2\log u}{u^2+6u+1}\mathrm{d}u \end{aligned}$
 
