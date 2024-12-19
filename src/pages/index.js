@@ -21,6 +21,12 @@ function HomepageHeader() {
             to="/docs/intro">
             随便逛逛...
           </Link>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <Link
+            className="button button--secondary button--lg"
+            to="friends">
+            看看友链...
+          </Link>
         </div>
       </div>
     </header>
