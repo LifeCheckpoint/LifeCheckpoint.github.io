@@ -5,7 +5,7 @@ export const Friends: Friend[] = [
         description: '',
         website: 'https://yans-blog.vercel.app/',
         avatar: 'https://avatars.githubusercontent.com/u/32036413?v=4',
-        tips: ""
+        tips: "A Student."
     },
     {
         title: 'zmx0142857',

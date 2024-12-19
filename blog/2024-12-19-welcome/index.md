@@ -1,5 +1,4 @@
 ---
-slug: welcome
 title: Welcome
 authors: [Life_Checkpoint]
 tags: [intro]

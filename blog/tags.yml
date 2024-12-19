@@ -7,3 +7,8 @@ algo:
   label: algo
   permalink: /algo
   description: 一些算法的想法
+
+AI:
+  label: AL
+  permalink: /AI
+  description: 有关人工智能的话题
