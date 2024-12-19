@@ -16,3 +16,9 @@ tags: [intro]
 ![Top Languages by Commits](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=lifecheckpoint&theme=date_night)
 ![Stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=lifecheckpoint&theme=date_night)
 ![Commits (UTC+8)](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=lifecheckpoint&theme=date_night&utcOffset=8)
+
+## Deploy This Project
+
+```shell
+cmd /C 'set "GIT_USER=Life_Checkpoint" && set "CURRENT_BRANCH=main" && yarn deploy'
+```
