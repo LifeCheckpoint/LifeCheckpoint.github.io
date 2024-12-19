@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklife_checkpoint_github_io=self.webpackChunklife_checkpoint_github_io||[]).push([[9647],{7121:(e,c,i)=>{i.r(c),i.d(c,{default:()=>a});i(6540);var s=i(4164),r=i(1213),t=i(7559),u=i(2831),h=i(7823),n=i(4848);function a(e){return(0,n.jsx)(r.e3,{className:(0,s.A)(t.G.wrapper.docsPages),children:(0,n.jsx)(h.A,{children:(0,u.v)(e.route.routes)})})}}}]);
