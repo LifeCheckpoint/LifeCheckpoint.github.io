@@ -45,8 +45,9 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          // 启用 remark-math 和 rehype-katex
+          remarkPlugins: [require('remark-math')],
+          rehypePlugins: [require('rehype-katex')],
           editUrl: 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io.git',
         },
         blog: {
@@ -94,9 +95,9 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'intro',
+            label: '文档',
           },
-          {to: '/blog', label: 'blog', position: 'left'},
+          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/LifeCheckpoint',
             label: 'GitHub',
