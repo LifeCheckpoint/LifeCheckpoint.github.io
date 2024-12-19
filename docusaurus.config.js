@@ -47,8 +47,7 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io.git',
+          editUrl: 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io.git',
         },
         blog: {
           showReadingTime: true,
@@ -58,12 +57,14 @@ const config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io.git',
+          editUrl: 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io.git',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
+          // 添加 remark-math 和 rehype-katex 支持
+          remarkPlugins: [require('remark-math')],
+          rehypePlugins: [require('rehype-katex')],
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -71,10 +72,21 @@ const config = {
       }),
     ],
   ],
-
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css',
+      type: 'text/css',
+      crossorigin: 'anonymous',
+    },
+  ],
+  
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark', // 默认夜间模式
+        respectPrefersColorScheme: false, // 忽略用户系统偏好
+      },
       navbar: {
         title: 'Lchpt.blog',
         items: [

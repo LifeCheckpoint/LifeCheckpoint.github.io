@@ -9,6 +9,8 @@ tags: [intro]
 
 ### 欢迎逛逛...
 
+<!--truncate-->
+
 ## My Github...
 
 ![Life_Checkpoint Details](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=lifecheckpoint&theme=date_night)
@@ -20,5 +22,5 @@ tags: [intro]
 ## Deploy This Project
 
 ```shell
-cmd /C 'set "GIT_USER=Life_Checkpoint" && set "CURRENT_BRANCH=main" && yarn deploy'
+cmd /C 'set "GIT_USER=<GITHUB_USER>" && set "CURRENT_BRANCH=main" && yarn deploy'
 ```

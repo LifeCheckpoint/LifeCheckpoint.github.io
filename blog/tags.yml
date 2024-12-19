@@ -1,4 +1,9 @@
-facebook:
+intro:
   label: intro
   permalink: /intro
   description: 一些简要介绍
+
+algo:
+  label: algo
+  permalink: /algo
+  description: 一些算法的想法
