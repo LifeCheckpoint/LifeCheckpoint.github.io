@@ -6,6 +6,9 @@ authors: [Life_Checkpoint]
 tags: [math]
 ---
 
+**本篇内容也同步发布在知乎**
+
+[积分∫arcsinx arccosx arctanx dx的处理思路](https://zhuanlan.zhihu.com/p/4020814599)
 
 计算这个积分还是挺烧脑的...第一次算这么复杂的积分
 
