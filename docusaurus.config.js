@@ -82,9 +82,9 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'intro',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: 'blog', position: 'left'},
           {
             href: 'https://github.com/LifeCheckpoint',
             label: 'GitHub',

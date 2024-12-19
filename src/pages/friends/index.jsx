@@ -11,9 +11,9 @@ import { Tooltip } from 'react-tooltip'
 const TITLE = '友链'
 const DESCRIPTION = [
     "从 Yan-Zero 那儿抓来的友链页面",
-    "（确实也全是朋友の链接）"
+    "（确实也全是朋友の🔗）"
 ]
-const ADD_FRIEND_URL = 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io/tree/main'
+const ADD_FRIEND_URL = 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io/tree/main/data'
 
 function FriendHeader() {
     return (
