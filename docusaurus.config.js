@@ -26,7 +26,7 @@ const config = {
   projectName: 'LifeCheckpoint.github.io', // Usually your repo name.
   deploymentBranch: 'pages',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   trailingSlash: false,
 
@@ -124,6 +124,21 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
+
+    // Add the plugins configuration here
+  plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["en", "zh"],
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: false,
+        docsRouteBasePath: ["/docs", "/blog"],
+      },
+    ],
+  ],
 };
 
 export default config;

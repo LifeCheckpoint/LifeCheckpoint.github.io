@@ -4,7 +4,7 @@ sidebar_label: 'asin x acos x atan x'
 title: asin x acos x atan x 的积分处理思路
 authors:
   - name: Life_Checkpoint
-tags: [intro]
+tags: [math]
 sidebar_position: 1
 ---
 
@@ -14,9 +14,6 @@ sidebar_position: 1
 过程有些多有些杂，也许不能保证完全正确，但是结构和处理方法应该是没有问题...
 
 *如果有误请指出*
-
-
-好，那我们试一试...
 
 ### 1. 代换处理，干掉几个反三角  
 
