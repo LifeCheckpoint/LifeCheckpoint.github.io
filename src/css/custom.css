@@ -20,7 +20,7 @@
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 /* Overriding root Infima variables */
 [data-theme='dark'] {
-  --ifm-color-primary: #6f6ff0;
+  --ifm-color-primary: #8d8df6;
 }
 /* Styling one class specially in dark mode */
 [data-theme='dark'] .purple-text {
