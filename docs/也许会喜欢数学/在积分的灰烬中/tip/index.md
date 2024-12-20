@@ -22,7 +22,7 @@ $$\begin{aligned}\int\frac{1}{x}\mathrm{d}x=\log|x|+C\end{aligned}$$
 
 其实这是❌**不完整**的，完整结果应该是
 
-$$\begin{aligned}\int\frac{1}{x}\mathrm{d}x=\begin{cases}\log x+C_1&(x>0)\\\log x+C_2&(x<0)\end{cases}\end{aligned}$$
+$$\begin{aligned}\int\frac{1}{x}\mathrm{d}x=\begin{cases}\log x+C_1&(x>0)\\\log (-x)+C_2&(x<0)\end{cases}\end{aligned}$$
 
 毕竟分段嘛，两个常数才行
 
