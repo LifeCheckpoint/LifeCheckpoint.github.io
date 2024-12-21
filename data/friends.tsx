@@ -15,6 +15,14 @@ export const Friends: Friend[] = [
         avatar: 'https://avatars.githubusercontent.com/u/25482626?v=4',
         tips: "Front-end programmer; interests in math typesetting and three.js."
     },
+    {
+        title: 'Nyuan Zhang',
+        cname: "BlueGlassBlock",
+        description: 'PKU EE freshman',
+        website: 'https://blog.blueg.top',
+        avatar: 'https://blog.blueg.top/avatar.jpg',
+        tips: "Think and build more."
+    }
 ]
 
 export type Friend = {

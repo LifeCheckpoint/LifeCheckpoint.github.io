@@ -48,7 +48,7 @@ const config = {
           // 启用 remark-math 和 rehype-katex
           remarkPlugins: [require('remark-math')],
           rehypePlugins: [require('rehype-katex')],
-          editUrl: 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io.git',
+          editUrl: 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io/tree/main',
         },
         blog: {
           showReadingTime: true,
@@ -58,7 +58,7 @@ const config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io.git',
+          editUrl: 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io/tree/main',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
