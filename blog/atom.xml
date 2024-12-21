@@ -2,11 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lifecheckpoint.github.io/blog</id>
     <title>Life_Checkpoint's Blog Blog</title>
-    <updated>2024-12-20T00:00:00.000Z</updated>
+    <updated>2024-12-21T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lifecheckpoint.github.io/blog"/>
     <subtitle>Life_Checkpoint's Blog Blog</subtitle>
     <icon>https://lifecheckpoint.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[LLM 简易人工记忆系统设计思路]]></title>
+        <id>https://lifecheckpoint.github.io/blog/2024/12/21/AI-Memory-sys</id>
+        <link href="https://lifecheckpoint.github.io/blog/2024/12/21/AI-Memory-sys"/>
+        <updated>2024-12-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[谁不希望自己的 AI 能有一套实现简易的记忆系统呢...]]></summary>
+        <content type="html"><![CDATA[<p><em>谁不希望自己的 AI 能有一套实现简易的记忆系统呢...</em></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ℹ-notice">ℹ Notice<a href="https://lifecheckpoint.github.io/blog/2024/12/21/AI-Memory-sys#%E2%84%B9-notice" class="hash-link" aria-label="Direct link to ℹ Notice" title="Direct link to ℹ Notice">​</a></h3>
+<p>这只是一个注重<strong>简易</strong>的记忆系统...专门的知识嵌入什么的，不在行啦...</p>
+<h1>记忆系统基本设计</h1>
+<p>🚧 施工中</p>]]></content>
+        <author>
+            <name>Life_Checkpoint</name>
+            <uri>https://github.com/LifeCheckpoint</uri>
+        </author>
+        <category label="AI" term="AI"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[AI 调教（提示词设计）指南]]></title>
         <id>https://lifecheckpoint.github.io/blog/2024/12/20/AI-teach-idea</id>

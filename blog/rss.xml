@@ -4,10 +4,23 @@
         <title>Life_Checkpoint's Blog Blog</title>
         <link>https://lifecheckpoint.github.io/blog</link>
         <description>Life_Checkpoint's Blog Blog</description>
-        <lastBuildDate>Fri, 20 Dec 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 21 Dec 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[LLM 简易人工记忆系统设计思路]]></title>
+            <link>https://lifecheckpoint.github.io/blog/2024/12/21/AI-Memory-sys</link>
+            <guid>https://lifecheckpoint.github.io/blog/2024/12/21/AI-Memory-sys</guid>
+            <pubDate>Sat, 21 Dec 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[谁不希望自己的 AI 能有一套实现简易的记忆系统呢...]]></description>
+            <content:encoded><![CDATA[<p><em>谁不希望自己的 AI 能有一套实现简易的记忆系统呢...</em></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ℹ-notice">ℹ Notice<a href="https://lifecheckpoint.github.io/blog/2024/12/21/AI-Memory-sys#%E2%84%B9-notice" class="hash-link" aria-label="Direct link to ℹ Notice" title="Direct link to ℹ Notice">​</a></h3>
+<p>这只是一个注重<strong>简易</strong>的记忆系统...专门的知识嵌入什么的，不在行啦...</p>
+<h1>记忆系统基本设计</h1>
+<p>🚧 施工中</p>]]></content:encoded>
+            <category>AI</category>
+        </item>
         <item>
             <title><![CDATA[AI 调教（提示词设计）指南]]></title>
             <link>https://lifecheckpoint.github.io/blog/2024/12/20/AI-teach-idea</link>
