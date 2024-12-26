@@ -22,6 +22,14 @@ export const Friends: Friend[] = [
         website: 'https://blog.blueg.top',
         avatar: 'https://blog.blueg.top/avatar.jpg',
         tips: "Think and build more."
+    },
+    {
+        title: 'Jim Zhou',
+        cname: "Zhiyu Zhou",
+        description: 'SUSTech freshman',
+        website: 'https://jimzhou.cn',
+        avatar: 'http://42.194.132.147/wp-content/uploads/2024/12/Screenshot-2024-12-19-at-9.06.16%E2%80%AFPM.png',
+        tips: "Word is useless. Show me the code."
     }
 ]
 
