@@ -83,7 +83,8 @@ const config = {
   
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    (
+      {
       colorMode: {
         defaultMode: 'dark', // 默认夜间模式
         respectPrefersColorScheme: false, // 忽略用户系统偏好
@@ -122,6 +123,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        // additionalLanguages: ['mathematica'], // Why?
       },
     }),
 
@@ -138,6 +140,13 @@ const config = {
         docsRouteBasePath: ["/docs", "/blog"],
       },
     ],
+  ],
+
+  scripts: [
+    {
+      src: '/js/prism-mathematica.js',
+      async: true,
+    },
   ],
 };
 
