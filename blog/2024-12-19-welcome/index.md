@@ -18,8 +18,9 @@ tags: [intro]
 ![Stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=lifecheckpoint&theme=date_night)
 ![Commits (UTC+8)](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=lifecheckpoint&theme=date_night&utcOffset=8)
 
-## Deploy This Project
+## 运行测试 / 部署
 
 ```shell
+npm start --reload
 cmd /C 'set "GIT_USER=<GITHUB_USER>" && set "CURRENT_BRANCH=main" && yarn deploy'
 ```

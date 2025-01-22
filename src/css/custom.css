@@ -26,3 +26,39 @@
 [data-theme='dark'] .purple-text {
   color: plum;
 }
+
+/* 图像效果 */
+img {
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+/* 进度条 */
+.progress-bar-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  max-width: 150px;
+  height: 16px;
+  background-color: #f0f0f0; /* 设置灰白色背景 */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  vertical-align: center;
+
+}
+
+.progress-bar-container:hover {
+  transform: scale(1.05); /* 鼠标悬停放大效果 */
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, rgb(87, 243, 87), rgb(58, 240, 240)); /* 进度条填充的渐变色 */
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
