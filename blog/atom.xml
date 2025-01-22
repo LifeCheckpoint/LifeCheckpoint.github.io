@@ -2,11 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lifecheckpoint.github.io/blog</id>
     <title>Life_Checkpoint's Blog Blog</title>
-    <updated>2025-01-04T00:00:00.000Z</updated>
+    <updated>2025-01-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lifecheckpoint.github.io/blog"/>
     <subtitle>Life_Checkpoint's Blog Blog</subtitle>
     <icon>https://lifecheckpoint.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[ASC 吐槽]]></title>
+        <id>https://lifecheckpoint.github.io/blog/2025/01/22/ASC</id>
+        <link href="https://lifecheckpoint.github.io/blog/2025/01/22/ASC"/>
+        <updated>2025-01-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[吐槽一下 ASC 赛事的相关内容...]]></summary>
+        <content type="html"><![CDATA[<p>吐槽一下 <code>ASC</code> 赛事的相关内容...</p>
+<p>一上来就发了一个优化 <code>AlphaFold3</code> 的题目，给人看昏了，光是研究前置知识就花了好久...</p>
+<p>然后是配环境跑模型，Jim Zhou 一己之力上好 docker，果然计算机领域大神</p>
+<p>优化这模型也是没头脑，一开始拼了老命用 <code>JAX Profiler</code> 抓事件，但是 GPU 事件抓也抓不到，CPU 事件也缺了一大段。后面换成 <code>Nvidia Nsight System</code> 之后终于抓到了，不过这个工具似乎过于专业导致我并不是很能看懂...</p>
+<p>然后是 <strong>卡</strong> 的问题，学校超算也是常年没卡，大多数时候只能看到空闲的 <code>V100</code>，然而这个计算架构会引发 Nsight 崩溃... <code>A100</code> 实际上也能用，然而大多数得排队 PEND，等一天都不一定 PEND 到我们的任务...</p>
+<p>目前仍然在绝赞优化中 <del>（池沼）</del></p>]]></content>
+        <author>
+            <name>Life_Checkpoint</name>
+            <uri>https://github.com/LifeCheckpoint</uri>
+        </author>
+        <category label="AI" term="AI"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PyTorch 源码阅读 I - Init 入口文件]]></title>
         <id>https://lifecheckpoint.github.io/blog/2025/01/04/Read-Pytorch-Init</id>
