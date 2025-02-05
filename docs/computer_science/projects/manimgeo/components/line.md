@@ -118,31 +118,33 @@ sidebar_position: 2
 
 ### 8. 构造两圆外切线
 
-#### `Lines2TangentsOutCirCir(circle1: Circle, circle2: Circle, name: str = "")`
+#### `Lines2TangentsOutCirCir(circle1: Circle, circle2: Circle, filter: Optional[Callable[[np.ndarray, np.ndarray], bool]] = None, name: str = "")`
 构造两圆的外切线。
 
 **参数**:
 - `circle1` (Circle): 第一个圆。
 - `circle2` (Circle): 第二个圆。
+- `filter` (filter: Callable[[np.ndarray, np.ndarray], bool], 可选): 给定条件，筛选返回符合条件的线条
 - `name` (str, 可选): 新线的名称，默认为空字符串。
 
 **返回值**:
-- `InfinityLines2`: 返回外切线对象。
+- `Union[List[InfinityLine], InfinityLine]`: 返回外切线对象列表，或符合条件的外切直线。
 
 ---
 
 ### 9. 构造两圆内切线
 
-#### `Lines2TangentsInCirCir(circle1: Circle, circle2: Circle, name: str = "")`
+#### `Lines2TangentsInCirCir(circle1: Circle, circle2: Circle, filter: Optional[Callable[[np.ndarray, np.ndarray], bool]] = None, name: str = "")`
 构造两圆的内切线。
 
 **参数**:
 - `circle1` (Circle): 第一个圆。
 - `circle2` (Circle): 第二个圆。
+- `filter` (filter: Callable[[np.ndarray, np.ndarray], bool], 可选): 给定条件，筛选返回符合条件的线条
 - `name` (str, 可选): 新线的名称，默认为空字符串。
 
 **返回值**:
-- `InfinityLines2`: 返回内切线对象。
+- `Union[List[InfinityLine], InfinityLine]`: 返回内切线对象列表，或符合条件的内切直线。
 
 ---
 
@@ -172,3 +174,19 @@ sidebar_position: 2
 
 **返回值**:
 - `List[Line]`: 返回包含两条线的列表。
+
+---
+
+### 12. 获取符合条件的单线对象
+
+#### `LineOfLines2Fit(lines2: Lines2, filter: Callable[[np.ndarray, np.ndarray], bool], name: str = "")`
+获取符合条件的第一个单线对象
+
+**参数**:
+- `lines2` (Lines2): 两点组合对象。
+- `filter` (Callable[[np.ndarray, np.ndarray]]): 给定线条起点终点坐标，判定线条是否满足条件。
+
+**返回值**:
+- `Line`: 返回符合条件的第一个点
+
+---
