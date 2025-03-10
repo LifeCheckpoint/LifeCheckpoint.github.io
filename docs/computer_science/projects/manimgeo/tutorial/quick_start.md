@@ -85,8 +85,7 @@ rank == 1: True
 
 然后，我们具体看一下这段代码干了什么：
 
-<br />
-<br />
+---
 
 ```python title="导入相关依赖" {2,3}
 import numpy as np
@@ -100,8 +99,7 @@ from manimgeo.utils import GeoUtils
 ManimGeo 的几何组件分布在不同的文件中，但是通过 `from manimgeo.components import *` 便可以全部导入
 :::
 
-<br />
-<br />
+---
 
 ```python title="构造点" {2,3,4}
 # 构造三角形ABC
@@ -121,8 +119,7 @@ C = PointFree(np.array([2, 3]), "C")
 ManimGeo 的几何组件都拥有 `name` 这一参数，创建合适的名称可以方便调试与理解
 :::
 
-<br />
-<br />
+---
 
 ```python title="输出点坐标" {1}
 [print(f"{P.name}: {P.coord}") for P in [A, B, C]]
@@ -136,8 +133,7 @@ B: [5 0]
 C: [2 3]
 ```
 
-<br />
-<br />
+---
 
 ```python title="构造边" {2,3,4}
 # 构造边
@@ -148,12 +144,11 @@ AC = LineSegmentPP(A, C, "AC")
 
 上面这四行构造了 $$\triangle ABC$$ 的三条边，每条边都由两点构成
 
-注意到我们这里使用的，用于构造线段的函数是 `LineSegmentPP`，其中，*LineSegment*表示线段，*PP*表示构造方式（两点构造线段，Point+Point）
+注意到我们这里使用的，用于构造线段的函数是 `LineSegmentPP`，其中，*LineSegment* 表示线段，*PP* 表示构造方式（两点构造线段，Point & Point）
 
 `LineSegmentPP` 会返回一个 `LineSegment` 类的对象，这就是创建好的线段
 
-<br />
-<br />
+---
 
 ```python title="输出线段信息" {1}
 [print(f"{L.name}: {L.start} -> {L.end}") for L in [AB, BC, AC]]
@@ -167,8 +162,7 @@ BC: [5 0] -> [2 3]
 AC: [0 0] -> [2 3]
 ```
 
-<br />
-<br />
+---
 
 ```python title="重心，垂心与外心" {1,2,3,5}
 CENTROID = PointCentroidPPP(A, B, C, "Centroid")
@@ -189,11 +183,10 @@ Circumcenter: [2.5 0.5]
 :::info ManimGeo 函数命名方式
 大多数几何对象构造函数的命名方式都是“**几何对象名**+**构造方式**”
 
-例如这里的“重心”构造函数就被命名为 `Point·CentroidPPP`
+例如，通过起始点构造线段为 `LineSegment·PP`，三点构造重心被命名为 `Point·CentroidPPP`
 :::
 
-<br />
-<br />
+---
 
 ```python title="输出依赖关系" {3}
 # 测试依赖关系
@@ -216,8 +209,8 @@ Dependencies of A:
 
 这幅图描述了以下决定关系：
 
-$A$ 的位置决定了线段 $AB$ $AC$ 的位置
-$A$ 的位置决定了点 $Centroid$ $Orthocenter$ 和 $Circumcenter$ 的位置
+- $A$ 的位置决定了线段 $AB$ $AC$ 的位置
+- $A$ 的位置决定了点 $Centroid$ $Orthocenter$ 和 $Circumcenter$ 的位置
 
 有了这种依赖关系，ManimGeo 就能根据上游组件的信息，自上而下自动计算出每个几何对象的信息，避免了人工计算的繁琐
 

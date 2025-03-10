@@ -38,6 +38,11 @@ const config = {
     locales: ['en'],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
   presets: [
     [
       'classic',
@@ -89,6 +94,9 @@ const config = {
         defaultMode: 'dark', // 默认夜间模式
         respectPrefersColorScheme: false, // 忽略用户系统偏好
       },
+      // mermaid: {
+      //   theme: {light: 'neutral', dark: 'neutral'},
+      // },
       navbar: {
         title: 'Lchpt.blog',
         items: [

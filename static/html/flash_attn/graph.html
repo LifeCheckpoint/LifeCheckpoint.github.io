@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</head>
+<body>
+  <div class="mermaid">
+    graph LR
+        A["标准Self-Attention"] --> B["Safe Softmax (3-pass)"]
+        B --> C["Online Softmax (2-pass)"]
+        C --> D["FlashAttention V1"]
+        D --> E["FlashAttention V2"]
+        E --> F["FlashAttention V3"]
+
+        %% 核心优化部分
+        subgraph "核心优化"
+            direction TB
+            G1["分块计算 (Tiling)"]
+            G2["内存优化 (IO-Awareness)"]
+            G3["反向传播重计算"]
+        end
+        D --> G1
+        D --> G2
+        D --> G3
+
+        %% V2优化部分
+        subgraph "V2优化"
+            direction TB
+            H1["减少非矩阵运算"]
+            H2["序列并行优化"]
+            H3["Warp Partitioning"]
+        end
+        E --> H1
+        E --> H2
+        E --> H3
+
+        %% V3优化部分
+        subgraph "V3优化"
+            direction TB
+            I1["支持 Hopper FP8"]
+            I2["Block Quantization"]
+            I3["性能提升 1 倍+"]
+        end
+        F --> I1
+        F --> I2
+        F --> I3
+
+        %% 扩展应用部分
+        subgraph "扩展应用"
+            direction TB
+            J1["Block-Sparse FlashAttention"]
+            J2["分布式训练"]
+            J3["MQA/GQA 支持"]
+        end
+        D --> J1
+        D --> J2
+        D --> J3
+
+        %% 相关技术部分
+        subgraph "相关技术"
+            direction TB
+            K1["Memory-Efficient Attention"]
+            K2["Causal Mask 处理"]
+            K3["FlashDecoding++"]
+        end
+        E --> K1
+        E --> K2
+        E --> K3
+  </div>
+</body>
+</html>
