@@ -12,3 +12,13 @@ AI:
   label: AI
   permalink: /AI
   description: 有关人工智能的话题
+
+writing:
+  label: writing
+  permalink: /writing
+  description: 一些写作
+
+other:
+  label: other
+  permalink: /other
+  description: 杂项

@@ -76,7 +76,7 @@ const config = {
           customCss: './src/css/custom.css',
         },
       }),
-    ],
+    ]
   ],
   stylesheets: [
     {
@@ -104,9 +104,9 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: '文档',
+            label: '文档 / 文字的力量',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: 'Blog / 碎碎念', position: 'left'},
           {
             href: 'https://github.com/LifeCheckpoint',
             label: 'GitHub',
@@ -118,10 +118,10 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '文档',
             items: [
               {
-                label: 'Intro',
+                label: 'Intro 介绍',
                 to: '/docs/intro',
               },
             ],

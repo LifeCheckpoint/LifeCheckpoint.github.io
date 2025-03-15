@@ -30,6 +30,14 @@ export const Friends: Friend[] = [
         website: 'https://jimzhou.cn',
         avatar: '/img/friends/JimZhou.png',
         tips: "Word is useless. Show me the code."
+    },
+    {
+        title: 'LifeCheckpoint',
+        cname: "梓刻Zike",
+        description: '想和小黑过一辈子',
+        website: 'https://lifecheckpoint.github.io',
+        avatar: 'https://avatars.githubusercontent.com/u/59783101?v=4',
+        tips: "友链具有自反性~"
     }
 ]
 
