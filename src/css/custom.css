@@ -62,3 +62,14 @@ img:hover {
   border-radius: 10px;
   transition: width 0.3s ease;
 }
+
+#canvas_sakura {
+  opacity: 0.7;
+}
+
+/* 移动端禁用 */
+/* @media screen and (max-width: 996px) {
+  #canvas_sakura {
+    display: none !important;
+  }
+} */
