@@ -38,6 +38,14 @@ export const Friends: Friend[] = [
         website: 'https://lifecheckpoint.github.io',
         avatar: 'https://avatars.githubusercontent.com/u/59783101?v=4',
         tips: "友链具有自反性~"
+    },
+    {
+        title: 'JL LIU',
+        cname: "uni",
+        description: 'Auto.Major,SISE,NEU',
+        website: 'https://uunniii.space',
+        avatar: 'https://avatars.githubusercontent.com/u/182308101?v=4',
+        tips: "These fleeting days are all we call youth......"
     }
 ]
 
