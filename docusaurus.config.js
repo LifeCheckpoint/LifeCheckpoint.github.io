@@ -114,20 +114,20 @@ const config = {
           },
         ],
       },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: '文档',
-            items: [
-              {
-                label: 'Intro 介绍',
-                to: '/docs/intro',
-              },
-            ],
-          }
-        ],
-      },
+      // footer: {
+      //   style: 'dark',
+      //   links: [
+      //     {
+      //       title: '文档',
+      //       items: [
+      //         {
+      //           label: 'Intro 介绍',
+      //           to: '/docs/intro',
+      //         },
+      //       ],
+      //     }
+      //   ],
+      // },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,

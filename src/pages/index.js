@@ -21,7 +21,7 @@ function HomepageHeader() {
             to="/docs/intro">
             随便逛逛...
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;
           <Link
             className="button button--secondary button--lg"
             to="friends">
@@ -40,7 +40,7 @@ export default function Home() {
       title={`星空列车`}
       description="一些...描述？">
       <HomepageHeader />
-      <main>
+      <main className="mainpage">
       </main>
     </Layout>
   );
