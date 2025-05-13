@@ -46,6 +46,14 @@ export const Friends: Friend[] = [
         website: 'https://uunniii.space',
         avatar: 'https://avatars.githubusercontent.com/u/182308101?v=4',
         tips: "These fleeting days are all we call youth......"
+    },
+    {
+        title: 'TimeDegree',
+        cname: 'Hymmn0s',
+        description: 'AI undergraduate | CTFer (SU)',
+        website: 'https://timedegree.cc',
+        avatar: 'https://avatars.githubusercontent.com/u/64592686?v=4',
+        tips: '夢のように愛して 愛のように夢をみて'
     }
 ]
 
