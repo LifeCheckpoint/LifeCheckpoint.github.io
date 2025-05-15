@@ -18,15 +18,15 @@
 
 .heroBanner {
   padding: 4rem 2rem;
-  text-align: left;
-  left: 2rem;
-  position: fixed;
-  align-items: left;
-  justify-content: left;
+  text-align: left; /* 桌面端保持左对齐 */
+  /* left: 2rem; 已移除 */
+  /* position: fixed; 已移除 */
+  align-items: left; /* 或 flex-start */
+  justify-content: left; /* 或 flex-start */
   background: rgba(0, 0, 0, 0.7);
   border-radius: 16px;
   max-width: 800px;
-  margin: 2rem auto;
+  margin: 2rem 0; /* 移除 auto，保持上下边距，使其在容器内自然靠左 */
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
@@ -49,11 +49,13 @@
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
-    margin: 1rem auto;
+    margin: 1rem auto; /* auto 会使其在父容器中水平居中 */
+    text-align: center; /* 手机端文本居中 */
   }
   
   .buttons {
     flex-direction: column;
     gap: 0.5rem;
+    align-items: center; /* 手机端按钮列居中 */
   }
 }
