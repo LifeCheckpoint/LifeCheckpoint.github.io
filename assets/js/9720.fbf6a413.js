@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklife_checkpoint_github_io=self.webpackChunklife_checkpoint_github_io||[]).push([[9720],{39720:(e,c,i)=>{i.d(c,{createArchitectureServices:()=>t.S});var t=i(49936);i(19369)}}]);
