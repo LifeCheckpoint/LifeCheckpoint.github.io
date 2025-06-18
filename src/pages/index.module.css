@@ -17,17 +17,15 @@
 }
 
 .heroBanner {
-  padding: 4rem 2rem;
-  text-align: left; /* 桌面端保持左对齐 */
-  /* left: 2rem; 已移除 */
-  /* position: fixed; 已移除 */
-  align-items: left; /* 或 flex-start */
-  justify-content: left; /* 或 flex-start */
+  padding: 4rem 4rem;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: flex-start;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 16px;
   max-width: 800px;
-  margin: 2rem 0; /* 移除 auto，保持上下边距，使其在容器内自然靠左 */
-  opacity: 1;
+  margin: 2rem 1rem;
+  opacity: 0.8;
   transition: opacity 0.5s ease-in-out;
 }
 
