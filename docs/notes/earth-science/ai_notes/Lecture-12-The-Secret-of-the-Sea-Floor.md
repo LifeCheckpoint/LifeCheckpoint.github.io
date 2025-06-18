@@ -3,7 +3,7 @@ description: 本笔记介绍了海底地形的测绘方法，详细阐述了洋�
 title: 12. The Secret of the Sea Floor
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 11
+sidebar_position: 12
 ---
 # 海底的秘密
 

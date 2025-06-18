@@ -3,7 +3,7 @@ description: 本笔记探讨了探测地球内部结构的方法，如地震学�
 title: 06. Interior Modifications
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 4
+sidebar_position: 6
 ---
 # 地球内部改造 (Interior Modifications of Earth)
 

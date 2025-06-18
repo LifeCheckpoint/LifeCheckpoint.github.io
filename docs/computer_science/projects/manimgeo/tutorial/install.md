@@ -21,20 +21,44 @@ sidebar_position: 0
 
 ## 安装 ManimGeo
 
-### 在线安装
+### pip
 
-```shell
+```bash
+# 仅安装数值计算
 pip install manimgeo
+
+# 安装 manimgl 集成
+pip install manimgeo[manim]
+
+# 安装 janim 集成
+pip install manimgeo[janim]
+
+# 全部安装
+pip install manimgeo[full]
 ```
 
-~~目前未发布到 Pypi，因此请进行离线安装~~
+### uv（推荐）
+
+若未安装 `uv`，通过以下命令安装
+
+```bash
+pip install uv
+```
+
+确认安装 `uv` 后，可通过 `uv` 安装 `manimgeo`
+
+```bash
+uv add manimgeo[full]
+```
+
+~~目前未发布到 Pypi~~
 
 ### 离线安装
 
 假设你已经下载了 `manimgeo.xx.whl`，执行：
 
-```shell
-pip install manimgeo.xx.whl 
+```bash
+pip install manimgeo.xx.whl
 ```
 
 ---

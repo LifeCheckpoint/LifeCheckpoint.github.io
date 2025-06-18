@@ -3,7 +3,7 @@ description: 本笔记探讨了地球面临的三大环境危机，并提出了�
 title: 21. Renewable Energy
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 18
+sidebar_position: 21
 ---
 # 可再生能源与可持续解决方案
 

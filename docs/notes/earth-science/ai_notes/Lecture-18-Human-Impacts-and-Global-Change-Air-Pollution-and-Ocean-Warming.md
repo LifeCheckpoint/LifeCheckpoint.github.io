@@ -3,7 +3,7 @@ description: 本笔记探讨了人类活动对地球环境的影响，重点关�
 title: 18. Human Impacts and Global Change Air Pollution and Ocean Warming
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 15
+sidebar_position: 18
 ---
 # 人类影响与全球变化：空气污染与全球变暖
 

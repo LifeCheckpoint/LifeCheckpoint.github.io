@@ -3,7 +3,7 @@ description: 本笔记详细阐述了板块构造理论，从魏格纳的大陆�
 title: 07. Plate Tectonics
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 5
+sidebar_position: 7
 ---
 # 板块构造论（Plate Tectonics）
 

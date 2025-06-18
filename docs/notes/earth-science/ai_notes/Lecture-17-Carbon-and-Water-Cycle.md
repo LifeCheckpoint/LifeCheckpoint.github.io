@@ -3,7 +3,7 @@ description: 本笔记详细介绍了地球的碳循环和水循环。碳循环�
 title: 17. Carbon and Water Cycle
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 14
+sidebar_position: 17
 ---
 # 碳循环与水循环
 

@@ -3,7 +3,7 @@ description: 本笔记探讨了生命与氧气的协同演化，介绍了生命�
 title: 10. Life and oxygen evolution
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 9
+sidebar_position: 10
 ---
 ## 地球科学课程笔记：生命与氧气演化
 

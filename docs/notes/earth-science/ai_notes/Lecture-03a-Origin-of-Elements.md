@@ -3,7 +3,7 @@ description: 本笔记探讨了宇宙中元素的起源，包括大爆炸核合�
 title: 03a. Origin of Elements
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 1
+sidebar_position: 3
 ---
 # 元素起源 (Origin of Elements)
 

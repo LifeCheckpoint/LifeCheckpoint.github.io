@@ -3,7 +3,7 @@ description: 宇宙形成过程
 title: 02. Big Bang
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 0
+sidebar_position: 2
 ---
 # 宇宙大爆炸 (The Big Bang)
 

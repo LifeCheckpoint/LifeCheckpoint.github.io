@@ -3,7 +3,7 @@ description: 本笔记深入探讨了人类活动对土壤和水资源的污染�
 title: 19. Human Impacts and Global Change Soil and Water Pollution
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 16
+sidebar_position: 19
 ---
 # 人类影响与全球变化：土壤和水污染
 

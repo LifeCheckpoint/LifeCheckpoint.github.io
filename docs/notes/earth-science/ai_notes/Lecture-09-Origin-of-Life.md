@@ -3,7 +3,7 @@ description: 本笔记探讨了生命的起源，强调生命是行星过程，�
 title: 09. Origin of Life
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 8
+sidebar_position: 9
 ---
 # 生命的起源
 

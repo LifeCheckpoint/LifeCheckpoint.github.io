@@ -3,7 +3,7 @@ description: 本笔记介绍了海洋生物学的主要内容，包括不同的�
 title: 15. Marine biology
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 12
+sidebar_position: 15
 ---
 # 海洋生物学
 

@@ -3,7 +3,7 @@ description: 本笔记探讨了能源与自然资源，首先回顾了人类发�
 title: 20. Energy Natural Resources
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 17
+sidebar_position: 20
 ---
 # 能源与自然资源
 

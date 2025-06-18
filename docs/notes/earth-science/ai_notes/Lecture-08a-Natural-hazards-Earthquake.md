@@ -3,7 +3,7 @@ description: 本笔记介绍了地震的定义、发生机制（弹性回跳理�
 title: 08a. Natural hazards - Earthquake
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 6
+sidebar_position: 8
 ---
 # 地震（Earthquake）
 

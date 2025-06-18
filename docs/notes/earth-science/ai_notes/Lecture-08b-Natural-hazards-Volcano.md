@@ -3,7 +3,7 @@ description: 本笔记探讨了火山作为地球系统的一部分，介绍了�
 title: 08b. Natural hazards - Volcano
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 7
+sidebar_position: 8
 ---
 # 火山（Volcanoes）
 

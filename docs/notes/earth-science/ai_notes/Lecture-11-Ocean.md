@@ -3,7 +3,7 @@ description: 本笔记介绍了地球的水体分布和主要大洋，阐述了�
 title: 11. Ocean
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 10
+sidebar_position: 11
 ---
 # 海洋 (Ocean)
 

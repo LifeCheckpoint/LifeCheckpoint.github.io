@@ -3,7 +3,7 @@ description: 本笔记介绍了分子如何从原子形成，探讨了电子壳�
 title: 03b. Formation of Molecules
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 2
+sidebar_position: 3
 ---
 # 分子形成 (Formation of Molecules)
 

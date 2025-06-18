@@ -20,10 +20,4 @@ ManimGeo 是一个用于简化几何图形创建和动画生成的辅助库。�
 - **几何变换**：支持反演等几何变换操作
 - **依赖管理**：自动维护几何元素间的依赖关系
 - **动画集成**：与 Manim 等动画系统的高集成
-<!-- 
 
-```bash
-manimgl tests\manimgl_anime\anime.py EulerLine
-```
-
-https://github.com/user-attachments/assets/36fec8c6-ad72-4b34-b9fc-f636a6808cfb -->

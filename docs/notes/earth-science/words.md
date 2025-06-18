@@ -114,7 +114,6 @@ sidebar_position: 0
 | fumarole  | /ˈfjuːməˌroʊl/ | n.  | 喷气孔  |
 | tuff      | /tʌf/          | n.  | 凝灰岩  |
 | vesicles  | /ˈvɛsɪkəlz/    | n.  | 气孔   |
-|           |                |     |      |
 
 ## 9. 海洋科学
 ### 9.1 海洋地理

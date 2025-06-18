@@ -3,7 +3,7 @@ description: 本笔记介绍了地球年龄的确定方法，包括均变论、�
 title: 05. Age of Earth
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 3
+sidebar_position: 5
 ---
 # 地球的年龄及其地质事件
 

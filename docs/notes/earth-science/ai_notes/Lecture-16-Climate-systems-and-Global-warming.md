@@ -3,7 +3,7 @@ description: 本笔记介绍了地球气候系统的组成和驱动力，阐述�
 title: 16. Climate systems and Global warming
 authors: [Life_Checkpoint]
 tags: [note, es]
-sidebar_position: 13
+sidebar_position: 16
 ---
 # 气候系统与全球变暖
 
