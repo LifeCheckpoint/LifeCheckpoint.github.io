@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-notes/database-intro/ai_notes/Chapter 7. 分布式数据库系统原理" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">07. 分布式数据库系统原理 | Life_Checkpoint&#x27;s Blog</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://lifecheckpoint.github.io/docs/notes/database-intro/ai_notes/Chapter 7. 分布式数据库系统原理"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="07. 分布式数据库系统原理 | Life_Checkpoint&#x27;s Blog"><meta data-rh="true" name="description" content="1. 分布式数据库系统（DDB）概述"><meta data-rh="true" property="og:description" content="1. 分布式数据库系统（DDB）概述"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://lifecheckpoint.github.io/docs/notes/database-intro/ai_notes/Chapter 7. 分布式数据库系统原理"><link data-rh="true" rel="alternate" href="https://lifecheckpoint.github.io/docs/notes/database-intro/ai_notes/Chapter 7. 分布式数据库系统原理" hreflang="en"><link data-rh="true" rel="alternate" href="https://lifecheckpoint.github.io/docs/notes/database-intro/ai_notes/Chapter 7. 分布式数据库系统原理" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"07. 分布式数据库系统原理","item":"https://lifecheckpoint.github.io/docs/notes/database-intro/ai_notes/Chapter 7. 分布式数据库系统原理"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Life_Checkpoint&#39;s Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Life_Checkpoint&#39;s Blog Atom Feed">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" crossorigin="anonymous">
+<script src="/js/prism-mathematica.js" async></script><link rel="stylesheet" href="/assets/css/styles.54ca3038.css">
+<script src="/assets/js/runtime~main.ad64da9e.js" defer="defer"></script>
+<script src="/assets/js/main.44fedee4.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="dark";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Lchpt.blog</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">文档 / 文字的力量</a><a class="navbar__item navbar__link" href="/blog">Blog / 碎碎念</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/LifeCheckpoint" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro">欢迎</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/acgn/fan">永远不止的彼岸微风</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/computer_science/projects/manimgeo">不可以做机械降神派</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/math/integrate/div-sq-sin">也许会喜欢数学</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/notes/earth-science/words">什么笔记都往里丢…</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/notes/earth-science/words">地球科学概论</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 1. 绪论：核心概念">数据库原理（东南 大学版）</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 1. 绪论：核心概念">AI整理的笔记</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 1. 绪论：核心概念">01. 绪论：核心概念</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 2. 数据模型">02. 数据模型</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 3. SQL">03. SQL</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 4. 系统原理">04. 系统原理</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 5. 数据库安全与完整性约束">05. 数据库安全与完整性约束</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 6. 数据库设计原理与实践">06. 数据库设计原理与实践</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 7. 分布式数据库系统原理">07. 分布式数据库系统原理</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 8. 新兴研究与应用领域">08. 新兴研究与应用领域</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/notes/database-intro/ai_notes/Chapter 9. 综合复习">09. 综合复习</a></li></ul></li></ul></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_z5aJ"><div class="docItemContainer_c0TR"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">什么笔记都往里丢…</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">数据库原理（东南大学版）</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AI整理的笔记</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">07. 分布式数据库系统原理</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>07. 分布式数据库系统原理</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-分布式数据库系统ddb概述">1. 分布式数据库系统（DDB）概述<a href="#1-分布式数据库系统ddb概述" class="hash-link" aria-label="Direct link to 1. 分布式数据库系统（DDB）概述" title="Direct link to 1. 分布式数据库系统（DDB）概述">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="11-什么是分布式数据库系统ddb">1.1 什么是分布式数据库系统（DDB）？<a href="#11-什么是分布式数据库系统ddb" class="hash-link" aria-label="Direct link to 1.1 什么是分布式数据库系统（DDB）？" title="Direct link to 1.1 什么是分布式数据库系统（DDB）？">​</a></h3>
+<p><strong>分布式数据库系统（Distributed Database System, DDB）</strong> 是指数据在物理上分布于网络中的不同计算机上，但逻辑上是相互关联的，并由一个 <strong>分布式数据库管理系统（Distributed Database Management System, DDBMS）</strong> 进行管理的数据库系统。</p>
+<p><strong>两种主要类型：</strong></p>
+<ol>
+<li><strong>物理分布，逻辑集中（General DDB）</strong>：数据分散存储，但从用户角度看，它们构成一个统一的、逻辑集中的数据库。这是本课程的重点。</li>
+<li><strong>物理分布，逻辑也分布（Federated Database System, FDBS）</strong>：更强调自治性，每个成员数据库保持自己的模式和管理，通过协商实现数据共享。</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="12-ddbs的特点">1.2 DDBS的特点<a href="#12-ddbs的特点" class="hash-link" aria-label="Direct link to 1.2 DDBS的特点" title="Direct link to 1.2 DDBS的特点">​</a></h3>
+<ul>
+<li><strong>分布性（Distribution）</strong>：数据物理上分散存储在不同节点。</li>
+<li><strong>关联性（Correlation）</strong>：分散的数据在逻辑上是相互关联的，共同构成一个完整的数据库。</li>
+<li><strong>DDBMS管理</strong>：由专门的DDBMS软件统一管理和协调。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="13-ddbs的优缺点">1.3 DDBS的优缺点<a href="#13-ddbs的优缺点" class="hash-link" aria-label="Direct link to 1.3 DDBS的优缺点" title="Direct link to 1.3 DDBS的优缺点">​</a></h3>
+<p><strong>优点：</strong></p>
+<ul>
+<li><strong>本地自治性（Local Autonomy）</strong>：每个站点可以独立管理其本地数据。</li>
+<li><strong>高可用性（Good Availability）</strong>：通过数据副本支持，部分站点故障不影响整个系统。</li>
+<li><strong>高灵活性（Good Flexibility）</strong>：系统扩展性好，易于适应业务变化。</li>
+<li><strong>低系统成本（Low System Cost）</strong>：可使用廉价的通用硬件构建。</li>
+<li><strong>高效率（High Efficiency）</strong>：多数访问可在本地处理，减少通信开销。</li>
+<li><strong>并行处理（Parallel Process）</strong>：不同站点可并行执行任务，提高吞吐量。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li><strong>集成困难（Hard to Integrate Existing Databases）</strong>：整合现有异构数据库复杂。</li>
+<li><strong>系统复杂性高（Too Complex）</strong>：系统本身的设计、使用、维护（如DDB设计）都比集中式数据库复杂。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="14-ddbs面临的主要问题">1.4 DDBS面临的主要问题<a href="#14-ddbs面临的主要问题" class="hash-link" aria-label="Direct link to 1.4 DDBS面临的主要问题" title="Direct link to 1.4 DDBS面临的主要问题">​</a></h3>
+<p>与集中式DBMS相比，DDBS的特殊性带来了以下挑战：</p>
+<ul>
+<li><strong>查询优化（Query Optimization）</strong>：优化目标不同，需考虑网络传输成本。</li>
+<li><strong>并发控制（Concurrency Control）</strong>：需考虑整个网络的并发事务协调。</li>
+<li><strong>恢复机制（Recovery Mechanism）</strong>：所有子事务必须同时提交或同时中止（原子性）。</li>
+<li><strong> 数据分布（Data Distribution）</strong>：如何有效地划分和放置数据。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-数据分布策略data-distribution-strategies">2. 数据分布策略（Data Distribution Strategies）<a href="#2-数据分布策略data-distribution-strategies" class="hash-link" aria-label="Direct link to 2. 数据分布策略（Data Distribution Strategies）" title="Direct link to 2. 数据分布策略（Data Distribution Strategies）">​</a></h2>
+<p>数据分布是DDBS的核心问题之一，决定了数据如何物理存储在网络中的不同站点。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="21-数据分布策略类型">2.1 数据分布策略类型<a href="#21-数据分布策略类型" class="hash-link" aria-label="Direct link to 2.1 数据分布策略类型" title="Direct link to 2.1 数据分布策略类型">​</a></h3>
+<table><thead><tr><th style="text-align:left">策略名称</th><th style="text-align:left">描述</th><th style="text-align:left">优点</th><th style="text-align:left">缺点</th></tr></thead><tbody><tr><td style="text-align:left"><strong>集中式（Centralized）</strong></td><td style="text-align:left">数据仍集中存储在一个站点，但系统是分布式的。</td><td style="text-align:left">最简单。</td><td style="text-align:left">不具备DDB的任何优势。</td></tr><tr><td style="text-align:left"><strong>分区式（Partitioned）</strong></td><td style="text-align:left">数据被划分为不重复的片段，每个片段存储在一个站点。</td><td style="text-align:left">无数据冗余，节省存储空间。</td><td style="text-align:left">某个片段所在站点故障，该片段数据不可用。</td></tr><tr><td style="text-align:left"><strong>复制式（Replicated）</strong></td><td style="text-align:left">数据库的完整副本存储在每个站点。</td><td style="text-align:left"><strong>高可用性</strong>，<strong>适合读密集型系统</strong>，查询响应快。</td><td style="text-align:left">数据冗余高，更新复杂（需保证所有副本一致）。</td></tr><tr><td style="text-align:left"><strong>混合式（Hybrid）</strong></td><td style="text-align:left">结合上述策略，部分数据分区，部分数据复制。</td><td style="text-align:left">最灵活。</td><td style="text-align:left">最复杂。</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="22-数据分布单元unit-of-data-distribution">2.2 数据分布单元（Unit of Data Distribution）<a href="#22-数据分布单元unit-of-data-distribution" class="hash-link" aria-label="Direct link to 2.2 数据分布单元（Unit of Data Distribution）" title="Direct link to 2.2 数据分布单元（Unit of Data Distribution）">​</a></h3>
+<p>数据可以按不同的粒度进行分布：</p>
+<ol>
+<li><strong>按关系（Relation）或文件（File）</strong>：不进行更细粒度的划分，整个表作为一个单元分布。</li>
+<li><strong>按片段（Fragments）</strong>：将关系分解成更小的逻辑单元进行分布。<!-- -->
+<ul>
+<li><strong>水平分片（Horizontal Fragmentation）</strong>：按行（元组）划分，将关系中的元组子集分配到不同站点。<!-- -->
+<ul>
+<li><strong>用例</strong>：一个包含全国客户信息的 <code>Customer</code> 表，可以按省份将客户数据水平分片，每个省份的数据存储在其对应的区域服务器上。例如，<code>Customer_Beijing</code> 表存储在北京服务器，<code>Customer_Shanghai</code> 表存储在上海服务器。</li>
+</ul>
+</li>
+<li><strong>垂直分片（Vertical Fragmentation）</strong>：按列（属性）划分，将关系中的属性子集分配到不同站点。<!-- -->
+<ul>
+<li><strong>用例</strong>：一个 <code>Employee</code> 表包含员工的基本信息（姓名、工号）和薪资信息（基本工资、奖金）。可以将基本信息分片到 <code>Employee_Basic</code> 表，存储在人事部门的服务器；将薪资信息分片到 <code>Employee_Salary</code> 表，存储在财务部门的服务器。</li>
+</ul>
+</li>
+<li><strong>混合分片（Mixed Fragmentation）</strong>：同时进行水平和垂直分片。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="23-分片的准则criteria-of-fragmentation">2.3 分片的准则（Criteria of Fragmentation）<a href="#23-分片的准则criteria-of-fragmentation" class="hash-link" aria-label="Direct link to 2.3 分片的准则（Criteria of Fragmentation）" title="Direct link to 2.3 分片的准则（Criteria of Fragmentation）">​</a></h3>
+<p>为了确保分片的有效性和正确性，需要遵循以下准则：</p>
+<ol>
+<li><strong>完备性（Completeness）</strong>：关系中的每个元组或属性都必须在某个分片中有其对应。</li>
+<li><strong>可重构性（Reconstruction）</strong>：必须能够通过分片重建出原始的全局关系。</li>
+<li><strong>不相交性（Disjointness）</strong>：对于水平分片，不同分片之间不应有重复的元组。</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="24-数据分布带来的问题">2.4 数据分布带来的问题<a href="#24-数据分布带来的问题" class="hash-link" aria-label="Direct link to 2.4 数据分布带来的问题" title="Direct link to 2.4 数据分布带来的问题">​</a></h3>
+<p>数据分布虽然带来了优势，但也引入了新的复杂性：</p>
+<ol>
+<li><strong>多副本一致性（Multi copies’ consistency）</strong>：当数据有多个副本时，如何保证所有副本的数据一致。</li>
+<li><strong>分布一致性（Distribution consistency）</strong>：主要指元组存储位置因更新操作而发生变化时的一致性问题。<!-- -->
+<ul>
+<li><strong>解决方案：</strong>
+<ul>
+<li><strong>再分布（Redistribution）</strong>：更新后，通过“选择-&gt;移动-&gt;插入-&gt;删除”的步骤将元组移动到正确的位置。</li>
+<li><strong>捎带（Piggybacking）</strong>：在更新时立即检查元组  是否不一致，如果存在，则随ACK信息一起发送回，然后发送到正确的位置。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>全局查询到片段查询的转换及物理副本的选择（Translation of Global Queries to Fragment Queries and Selection of Physical Copies）</strong>：DDBMS需要将用户提交的全局查询分解为针对各个片段的子查询，并选择最优的物理副本进行访问。</li>
+<li><strong>数据库片段的设计和片段的分配（Design of Database Fragments and Allocation of Fragments）</strong>：这是一个分布式数据库设计问题，需要根据应用需求和系统特性来决定如何分片以及将分片分配到哪个站点。</li>
+</ol>
+<p><strong>注意：</strong> 问题1-3主要由DDBMS解决，问题4是分布式数据库设计需要解决的问题。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-联邦数据库系统federated-database-system-fdbs">3. 联邦数据库系统（Federated Database System, FDBS）<a href="#3-联邦数据库系统federated-database-system-fdbs" class="hash-link" aria-label="Direct link to 3. 联邦数据库系统（Federated Database System, FDBS）" title="Direct link to 3. 联邦数据库系统（Federated Database System, FDBS）">​</a></h2>
+<p>联邦数据库系统是一种特殊的分布式数据库系统，它旨在解决多个现有、分布且异构数据库的集成问题。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="31-fdbs的特点">3.1 FDBS的特点<a href="#31-fdbs的特点" class="hash-link" aria-label="Direct link to 3.1 FDBS的特点" title="Direct link to 3.1 FDBS的特点">​</a></h3>
+<ul>
+<li><strong>自治性（Autonomy）</strong>：每个成员数据库都保持其高度自治性。</li>
+<li><strong>协商（Negotiation）</strong>：成员之间通过协商来协作和共享数据。</li>
+<li><strong>无全局模式（No Global Schema）</strong>：与传统DDB不同，FDBS通常没有一个统一的全局模式，每个联邦成员保留自己的数据模式  。</li>
+<li><strong>数据共享（Data Sharing）</strong>：通过协商决定各自的输入/输出模式，建立数据共享关系。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="32-联邦数据库系统中的模式结构">3.2 联邦数据库系统中的模式结构<a href="#32-联邦数据库系统中的模式结构" class="hash-link" aria-label="Direct link to 3.2 联邦数据库系统中的模式结构" title="Direct link to 3.2 联邦数据库系统中的模式结构">​</a></h3>
+<p>联邦数据库系统采用多层模式结构来实现异构数据库的集成和数据共享。</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><msub><mi>S</mi><mi>i</mi></msub><mo>=</mo><mi>C</mi><msub><mi>S</mi><mi>i</mi></msub><mo>+</mo><mi>I</mi><msub><mi>S</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">FS_i = CS_i + IS_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em"></span><span class="mord mathnormal" style="margin-right:0.13889em">F</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em"></span><span class="mord mathnormal" style="margin-right:0.07153em">C</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em"></span><span class="mord mathnormal" style="margin-right:0.07847em">I</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span></span></span></span></p>
+<ul>
+<li><strong>FS_i (Federated Schema)</strong>：站点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em"></span><span class="mord mathnormal">i</span></span></span></span> 上用户可用的所有数据模式。</li>
+<li><strong>CS_i (Component Schema)</strong>：站点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em"></span><span class="mord mathnormal">i</span></span></span></span> 上本地数据库的模式。</li>
+<li><strong>IS_i (Import Schema)</strong>：通过与其他站点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em"></span><span class="mord mathnormal" style="margin-right:0.05724em">j</span></span></span></span> 的 <strong>ES_j (Export Schema)</strong> 协商获得的，从其他站点导入的数据模式。</li>
+<li><strong>ES_j (Export Schema)</strong>：站点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em"></span><span class="mord mathnormal" style="margin-right:0.05724em">j</span></span></span></span> 导出的、可供其他站点访问的数据模式。</li>
+</ul>
+<p><strong>查询处理流程：</strong></p>
+<ol>
+<li>用户在FS_i上提交查询。</li>
+<li>查询被分解为针对CS_i和IS_i的子查询。</li>
+<li>针对IS_i的子查询进一步转化为针对相应ES_j的子查询，并发送到其他站点。</li>
+<li>从ES_j获得的结果被转换为IS_i的格式。</li>
+<li>将CS_i和IS_i的查询结果合并，形成FS_i的最终结果。</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="4-ddbs中的查询优化query-optimization">4. DDBS中的查询优化（Query Optimization）<a href="#4-ddbs中的查询优化query-optimization" class="hash-link" aria-label="Direct link to 4. DDBS中的查询优化（Query Optimization）" title="Direct link to 4. DDBS中的查询优化（Query Optimization）">​</a></h2>
+<p>DDBS中的查询优化目标与集中式数据库不同，主要目标是<strong>最小化网络传输成本</strong>。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="41-优化目标">4.1 优化目标<a href="#41-优化目标" class="hash-link" aria-label="Direct link to 4.1 优化目标" title="Direct link to 4.1 优化目标">​</a></h3>
+<ul>
+<li><strong>最小化网络传输成本（Minimize the transmission cost on network）</strong>：这是DDBS查询优化的首要目标，因为网络通信通常比本地磁盘I/O昂贵得多。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="42-优化策略">4.2 优化策略<a href="#42-优化策略" class="hash-link" aria-label="Direct link to 4.2 优化策略" title="Direct link to 4.2 优化策略">​</a></h3>
+<ul>
+<li><strong>代数优化（Algebra Optimization）</strong>：通过关系代数表达式的等价变换来优化查询。</li>
+<li><strong>全局查询到片段查询的转换及物理副本的选择（Translation of Global Queries to Fragment Queries and Selection of Physical Copies）</strong>：将用户提交的全局查询转换为针对具体数据片段的子查询，并选择最优的物理副本进行访问。</li>
+<li><strong>查询分解（Query Decomposition）</strong>：将复杂的查询分解为更小的、可执行的单元。</li>
+<li><strong>全局查询计划（Global Query Plan）</strong>：生成一个跨多个站点的执行计划，包括数据传输和本地操作。</li>
+</ul>
+<p><strong>用例：全局查询优化</strong></p>
+<p>假设有关系R1在Site1，R2在Site2。用户在Site1执行查询：
+<code>SELECT * FROM R1, R2 WHERE R1.a = R2.b;</code></p>
+<p>一个可能的全局查询优化计划（基于成本估算）可能是：</p>
+<ol>
+<li>将R2从Site2发送到Site1，得到R&#x27;。</li>
+<li>在Site1执行本地连接操作：
+<code>SELECT * FROM R1, R&#x27; WHERE R1.a = R&#x27;.b;</code></li>
+</ol>
+<p>这个计划的目标是减少网络传输的数据量，或者将数据移动到计算发生的地方，以最小化总成本。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="5-ddbs中的恢复机制recovery-mechanism">5. DDBS中的恢复机制（Recovery Mechanism）<a href="#5-ddbs中的恢复机制recovery-mechanism" class="hash-link" aria-label="Direct link to 5. DDBS中的恢复机制（Recovery Mechanism）" title="Direct link to 5. DDBS中的恢复机制（Recovery Mechanism）">​</a></h2>
+<p>DDBS的恢复机制基本原理与集中式DBMS相同，但需要处理分布式事务的原子性问题。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="51-核心挑战">5.1 核心挑战<a href="#51-核心挑战" class="hash-link" aria-label="Direct link to 5.1 核心挑战" title="Direct link to 5.1 核心挑战">​</a></h3>
+<ul>
+<li><strong>分布式事务（Distributed Transactions）</strong>：关键在于如何确保所有子事务要么同时提交，要么同时中止。</li>
+<li><strong>通信不可靠性（Communication is not reliable）</strong>：子事务之间的协调依赖于通信，而网络通信可能出现故障。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="52-关键协议">5.2 关键协议<a href="#52-关键协议" class="hash-link" aria-label="Direct link to 5.2 关键协议" title="Direct link to 5.2 关键协议">​</a></h3>
+<ul>
+<li><strong>两阶段提交协议（Two-Phase Commitment Protocol, 2PC）</strong>：这是实现分布式事务原子性的标准协议。<!-- -->
+<ul>
+<li><strong>阶段一：投票阶段（Voting Phase）</strong>：协调者向所有参与者发送准备提交请求。参与者执行预备操作，并向协调者投票（同意或中止）。</li>
+<li><strong>阶段二：提交/中止阶段（Commit/Abort Phase）</strong>：协调者根据所有参与者的投票结果决定最终操作。如果所有参与者都同意，则发送提交命令；否则，发送中止命令。参与者执行最终操作并向协调者发送确认。</li>
+</ul>
+</li>
+<li><strong>故障组合（Combination of failures）</strong>：需要考虑协调者故障、参与者故障、网络故障等多种故障情况及其组合。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="6-ddbs中的并发控制concurrency-control">6. DDBS中的并发控制（Concurrency Control）<a href="#6-ddbs中的并发控制concurrency-control" class="hash-link" aria-label="Direct link to 6. DDBS中的并发控制（Concurrency Control）" title="Direct link to 6. DDBS中的并发控制（Concurrency Control）">​</a></h2>
+<p>DDBS的并发控制基本原理与集中式DBMS相同，即确保并发事务的调度是可串行化的。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="61-核心挑战">6.1 核心挑战<a href="#61-核心挑战" class="hash-link" aria-label="Direct link to 6.1 核心挑战" title="Direct link to 6.1 核心挑战">​</a></h3>
+<ul>
+<li><strong>多副本（Multi copies）</strong>：由于数据存在多个副本，需要实现全局锁定，确保对同一逻辑数据的所有副本操作的一致性。</li>
+<li><strong>通信开销（Communication overhead）</strong>：分布式锁管理和协调会引入显著的网络通信开销。</li>
+<li><strong>全局死锁（Global deadlock）</strong>：由于事务跨越多个站点，可能发生涉及多个站点的死锁，检测和解决比集中式死锁更复杂。</li>
+</ul>
+<p><strong>重点提示：</strong></p>
+<ul>
+<li><strong>2PC协议</strong>是分布式事务原子性的<strong>核心</strong>。</li>
+<li><strong>查询优化目标</strong>是<strong>最小化网络传输成本</strong>。</li>
+<li><strong>数据分片</strong>（水平、垂直、混合）是实现数据分布的<strong>关键技术</strong>。</li>
+<li><strong>联邦数据库</strong>与<strong>通用DDB</strong>的主要区别在于<strong>自治性</strong>和<strong>无全局模式</strong>。</li>
+<li>DDBS的<strong>复杂性</strong>和<strong>高可用性</strong>是其最显著的优缺点。</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/note">note</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/db">db</a></li></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/LifeCheckpoint/LifeCheckpoint.github.io/tree/main/docs/notes/database-intro/ai_notes/Chapter 7. 分布式数据库系统原理.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/notes/database-intro/ai_notes/Chapter 6. 数据库设计原理与实践"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">06. 数据库设计原理与实践</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/notes/database-intro/ai_notes/Chapter 8. 新兴研究与应用领域"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">08. 新兴研究与应用领域</div></a></nav></div><div style="margin-top:20px"></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-分布式数据库系统ddb概述" class="table-of-contents__link toc-highlight">1. 分布式数据库系统（DDB）概述</a><ul><li><a href="#11-什么是分布式数据库系统ddb" class="table-of-contents__link toc-highlight">1.1 什么是分布式数据库系统（DDB）？</a></li><li><a href="#12-ddbs的特点" class="table-of-contents__link toc-highlight">1.2 DDBS的特点</a></li><li><a href="#13-ddbs的优缺点" class="table-of-contents__link toc-highlight">1.3 DDBS的优缺点</a></li><li><a href="#14-ddbs面临的主要问题" class="table-of-contents__link toc-highlight">1.4 DDBS面临的主要问题</a></li></ul></li><li><a href="#2-数据分布策略data-distribution-strategies" class="table-of-contents__link toc-highlight">2. 数据分布策略（Data Distribution Strategies）</a><ul><li><a href="#21-数据分布策略类型" class="table-of-contents__link toc-highlight">2.1 数据分布策略类型</a></li><li><a href="#22-数据分布单元unit-of-data-distribution" class="table-of-contents__link toc-highlight">2.2 数据分布单元（Unit of Data Distribution）</a></li><li><a href="#23-分片的准则criteria-of-fragmentation" class="table-of-contents__link toc-highlight">2.3 分片的准则（Criteria of Fragmentation）</a></li><li><a href="#24-数据分布带来的问题" class="table-of-contents__link toc-highlight">2.4 数据分布带来的问题</a></li></ul></li><li><a href="#3-联邦数据库系统federated-database-system-fdbs" class="table-of-contents__link toc-highlight">3. 联邦数据库系统（Federated Database System, FDBS）</a><ul><li><a href="#31-fdbs的特点" class="table-of-contents__link toc-highlight">3.1 FDBS的特点</a></li><li><a href="#32-联邦数据库系统中的模式结构" class="table-of-contents__link toc-highlight">3.2 联邦数据库系统中的模式结构</a></li></ul></li><li><a href="#4-ddbs中的查询优化query-optimization" class="table-of-contents__link toc-highlight">4. DDBS中的查询优化（Query Optimization）</a><ul><li><a href="#41-优化目标" class="table-of-contents__link toc-highlight">4.1 优化目标</a></li><li><a href="#42-优化策略" class="table-of-contents__link toc-highlight">4.2 优化策略</a></li></ul></li><li><a href="#5-ddbs中的恢复机制recovery-mechanism" class="table-of-contents__link toc-highlight">5. DDBS中的恢复机制（Recovery Mechanism）</a><ul><li><a href="#51-核心挑战" class="table-of-contents__link toc-highlight">5.1 核心挑战</a></li><li><a href="#52-关键协议" class="table-of-contents__link toc-highlight">5.2 关键协议</a></li></ul></li><li><a href="#6-ddbs中的并发控制concurrency-control" class="table-of-contents__link toc-highlight">6. DDBS中的并发控制（Concurrency Control）</a><ul><li><a href="#61-核心挑战" class="table-of-contents__link toc-highlight">6.1 核心挑战</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>
