@@ -1,6 +1,6 @@
 ---
 description: ManimGeo 是一个用于简化几何图形创建和动画生成的辅助库。它提供丰富的几何元素和操作，帮助快速构建复杂的几何场景。
-sidebar_label: '简介'
+sidebar_label: 'ManimGeo'
 title: ManimGeo 简介
 authors: [Life_Checkpoint]
 tags: [manim, math]
@@ -21,4 +21,6 @@ ManimGeo 是一个用于简化几何图形创建和动画生成的辅助库。�
 - **依赖管理**：自动维护几何元素间的依赖关系
 - **动画集成**：与 Manim 等动画系统的高集成
 
-主文档 👉 [Readthedocs - ManimGeo](https://manimgeo.readthedocs.io/zh-cn/latest/)
+## 主文档
+
+[Readthedocs - ManimGeo](https://manimgeo.readthedocs.io/zh-cn/latest/)
