@@ -6,17 +6,19 @@
   width: 110vw;
   height: 110vh;
   overflow: hidden;
-  background-size: 100% auto;
   transform-origin: center;
   z-index: -1;
   background: url('/img/Kuro.png');
   background-position: center;
   background-size: 105%;
+  background-repeat: no-repeat;
   will-change: transform;
   opacity: 0.9;
 }
 
 .heroBanner {
+  width: min(700px, calc(100% - 2rem));
+  box-sizing: border-box;
   padding: 4rem 3rem;
   text-align: left;
   align-items: flex-start;
@@ -29,31 +31,69 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+.heroBanner :global(.hero__title) {
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.heroBanner :global(.hero__subtitle) {
+  line-height: 1.35;
+}
+
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   align-items: left;
   justify-content: left;
   gap: 1rem;
   margin-top: 1.5rem;
 }
 
-.buttons .button {
+.buttons :global(.button) {
   border-radius: 8px;
   font-weight: bold;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-    margin: 1rem auto; /* auto 会使其在父容器中水平居中 */
-    text-align: center; /* 手机端文本居中 */
+  .bgContainer {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center top;
+    opacity: 0.6;
   }
-  
+
+  .heroBanner {
+    width: calc(100% - 1rem);
+    padding: 1.5rem 1rem;
+    margin: 0.75rem auto 1rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .heroBanner :global(.container) {
+    padding: 0;
+  }
+
+  .heroBanner :global(.hero__title) {
+    font-size: clamp(2.4rem, 11vw, 3.8rem);
+  }
+
+  .heroBanner :global(.hero__subtitle) {
+    font-size: clamp(1.2rem, 5.2vw, 1.8rem);
+  }
+
   .buttons {
     flex-direction: column;
-    gap: 0.5rem;
-    align-items: center; /* 手机端按钮列居中 */
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  .buttons :global(.button) {
+    width: 100%;
+    min-width: 0;
   }
 }
