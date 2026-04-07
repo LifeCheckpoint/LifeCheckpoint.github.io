@@ -5,6 +5,8 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import rehypeMathjax from 'rehype-mathjax/svg';
+import remarkMath from 'remark-math';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -27,7 +29,6 @@ const config = {
   deploymentBranch: 'pages',
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
   trailingSlash: false,
 
   // Even if you don't use internationalization, you can use this field to set
@@ -40,6 +41,9 @@ const config = {
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
   themes: ['@docusaurus/theme-mermaid'],
 
@@ -50,9 +54,9 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // 启用 remark-math 和 rehype-katex
-          remarkPlugins: [require('remark-math')],
-          rehypePlugins: [require('rehype-katex')],
+          // 启用 remark-math 和 MathJax 支持
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeMathjax],
           editUrl: 'https://github.com/LifeCheckpoint/LifeCheckpoint.github.io/tree/main',
         },
         blog: {
@@ -68,9 +72,9 @@ const config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
-          // 添加 remark-math 和 rehype-katex 支持
-          remarkPlugins: [require('remark-math')],
-          rehypePlugins: [require('rehype-katex')],
+          // 添加 remark-math 和 MathJax 支持
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeMathjax],
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -78,14 +82,6 @@ const config = {
       }),
     ]
   ],
-  stylesheets: [
-    {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css',
-      type: 'text/css',
-      crossorigin: 'anonymous',
-    },
-  ],
-  
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     (
