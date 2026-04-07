@@ -102,60 +102,72 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* ========== 移动端响应式优化：底部沉浸式排版 ========== */
+/* ========== 移动端响应式优化 ========== */
 @media screen and (max-width: 996px) {
   .bgContainer {
-    top: -2%;
-    left: -2%;
-    width: 104vw;
-    height: 104vh;
+    /* 稍微放大背景图，防止滑动橡皮筋回弹时漏出白边 */
+    top: -10%;
+    left: -10%;
+    width: 120vw;
+    height: 120vh;
     opacity: 1; 
-    /* 重点：调整背景定位，确保竖屏时人物的脸在画面中上部偏右的位置，不被裁掉 */
-    background-position: 65% 20%; 
+    background-position: 50% 20%; 
+    background-color: #111; /* 增加深色底色，防止图片没盖住的地方漏光 */
   }
 
   .heroBanner {
-    min-height: calc(100vh - 60px); 
-    padding: 2rem 1.5rem 10vh; /* 底部留出 10vh 的呼吸空间 */
+    /* 核心修复：使用 dvh(动态视口高度) 解决手机地址栏缩放导致的底部留白问题 */
+    min-height: 100vh; 
+    min-height: 100dvh; 
     
-    /* 核心1：把内容全部推到最底部 */
+    /* 底部增加超大内边距，把渐变无限向下延伸，彻底盖住亮边 */
+    padding: 2rem 1.5rem 15vh; 
+    margin-bottom: -5vh; /* 往下吃掉可能存在的缝隙 */
     justify-content: flex-end; 
     
-    /* 核心2：底部增加一层黑色羽化渐变，保证白色文字在任何背景下绝对清晰 */
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0.7) 100%);
+    /* 让渐变底部彻底变黑 (0.95)，和深色模式无缝融合 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.95) 100%);
   }
 
-  /* 移动端标题可以稍微左对齐或者保持居中，这里采用左对齐，更有杂志感 */
   .heroBanner :global(.container) {
-    align-items: flex-start; /* 文字和按钮靠左 */
+    align-items: flex-start; 
     text-align: left;
     width: 100%;
   }
 
   .heroBanner :global(.hero__title) {
-    font-size: clamp(2.2rem, 10vw, 3rem); 
+    /* 稍微缩小一点最大字号，并使用 break-word，防止 Checkpoint's 被强行切断 */
+    font-size: clamp(1.8rem, 8.5vw, 2.4rem); 
+    line-height: 1.2;
     margin-bottom: 0.5rem;
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8); /* 配合底层渐变，依然保留阴影 */
+    word-break: keep-all; /* 保持单词完整 */
+    overflow-wrap: break-word;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9); 
   }
 
   .heroBanner :global(.hero__subtitle) {
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 2px;
-    margin-bottom: 2rem; /* 离按钮近一点 */
-    color: rgba(255, 255, 255, 0.7); /* 副标题稍微暗一点，拉开层级 */
+    margin-bottom: 1.5rem; 
+    color: rgba(255, 255, 255, 0.85); 
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
   }
 
   .buttons {
-    flex-direction: column;
-    gap: 1rem;
+    /* 改为横向排版，如果屏幕不够宽会自动换行 */
+    flex-direction: row; 
+    flex-wrap: wrap;
+    gap: 0.8rem;
     width: 100%;
-    align-items: flex-start; /* 按钮也靠左对齐 */
+    align-items: center; 
+    justify-content: flex-start;
   }
 
   .buttons :global(.button) {
-    width: 100%;
-    /* 手机端按钮不用太宽，但要高一点方便点击 */
-    padding: 0.9rem 0 !important; 
-    background: rgba(255, 255, 255, 0.15) !important; /* 手机端背景稍微调亮一点点 */
+    /* 取消 100% 宽度，让按钮根据文字长度自动适应，显得更精致 */
+    width: auto !important;
+    padding: 0.7rem 1.5rem !important; 
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.15) !important; 
   }
 }
