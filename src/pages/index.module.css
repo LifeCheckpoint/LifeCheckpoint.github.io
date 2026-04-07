@@ -1,4 +1,4 @@
-/* 动态背景容器 */
+/* 动态背景容器保持不变 */
 .bgContainer {
   position: fixed;
   top: -5%;
@@ -10,90 +10,152 @@
   z-index: -1;
   background: url('/img/Kuro.png');
   background-position: center;
-  background-size: 105%;
+  background-size: cover;
   background-repeat: no-repeat;
   will-change: transform;
-  opacity: 0.9;
 }
 
+/* ========== 电脑端：全透明、居中、无遮挡 ========== */
 .heroBanner {
-  width: min(700px, calc(100% - 2rem));
+  width: 100%;
+  /* 减去导航栏高度，让文字在整个屏幕绝对居中 */
+  min-height: calc(100vh - 60px); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
   box-sizing: border-box;
-  padding: 4rem 3rem;
-  text-align: left;
-  align-items: flex-start;
-  justify-content: flex-start;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 16px;
-  max-width: 700px;
-  margin: 2rem 1rem;
-  opacity: 0.8;
-  transition: opacity 0.5s ease-in-out;
+  
+  /* 彻底去掉背景色和边框，实现无界悬浮 */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
+/* 确保内部容器也居中对齐 */
+.heroBanner :global(.container) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 超大标题设计 */
 .heroBanner :global(.hero__title) {
-  line-height: 1.05;
-  overflow-wrap: anywhere;
+  /* 使用 clamp 让字体非常大，且能根据屏幕宽度平滑缩放 */
+  font-size: clamp(3.5rem, 8vw, 6rem); 
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.95); /* 95%的白色，微微透出一丝背景光 */
+  word-break: keep-all;
+  margin-bottom: 1.2rem;
+  
+  /* 双层重阴影：这是无背景卡片时保证文字可读性的核心！*/
+  text-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
+/* 副标题设计 */
 .heroBanner :global(.hero__subtitle) {
-  line-height: 1.35;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 500;
+  letter-spacing: 6px; /* 增加字间距，更有日系排版的高级质感 */
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 3.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  align-items: left;
-  justify-content: left;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
+/* 按钮：保留毛玻璃光效，改成圆角药丸形状，配合大标题更好看 */
 .buttons :global(.button) {
-  border-radius: 8px;
-  font-weight: bold;
+  border-radius: 50px !important; /* 药丸形 */
+  padding: 0.8rem 2.8rem !important; /* 加宽按钮 */
+  font-size: 1.1rem;
+  font-weight: 600;
   text-align: center;
+  
+  background: rgba(255, 255, 255, 0.1) !important; 
+  color: #ffffff !important; 
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
+.buttons :global(.button):hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ========== 移动端响应式优化：底部沉浸式排版 ========== */
 @media screen and (max-width: 996px) {
   .bgContainer {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-position: center top;
-    opacity: 0.6;
+    top: -2%;
+    left: -2%;
+    width: 104vw;
+    height: 104vh;
+    opacity: 1; 
+    /* 重点：调整背景定位，确保竖屏时人物的脸在画面中上部偏右的位置，不被裁掉 */
+    background-position: 65% 20%; 
   }
 
   .heroBanner {
-    width: calc(100% - 1rem);
-    padding: 1.5rem 1rem;
-    margin: 0.75rem auto 1rem;
-    border-radius: 12px;
-    text-align: center;
+    min-height: calc(100vh - 60px); 
+    padding: 2rem 1.5rem 10vh; /* 底部留出 10vh 的呼吸空间 */
+    
+    /* 核心1：把内容全部推到最底部 */
+    justify-content: flex-end; 
+    
+    /* 核心2：底部增加一层黑色羽化渐变，保证白色文字在任何背景下绝对清晰 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0.7) 100%);
   }
 
+  /* 移动端标题可以稍微左对齐或者保持居中，这里采用左对齐，更有杂志感 */
   .heroBanner :global(.container) {
-    padding: 0;
+    align-items: flex-start; /* 文字和按钮靠左 */
+    text-align: left;
+    width: 100%;
   }
 
   .heroBanner :global(.hero__title) {
-    font-size: clamp(2.4rem, 11vw, 3.8rem);
+    font-size: clamp(2.2rem, 10vw, 3rem); 
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8); /* 配合底层渐变，依然保留阴影 */
   }
 
   .heroBanner :global(.hero__subtitle) {
-    font-size: clamp(1.2rem, 5.2vw, 1.8rem);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem; /* 离按钮近一点 */
+    color: rgba(255, 255, 255, 0.7); /* 副标题稍微暗一点，拉开层级 */
   }
 
   .buttons {
     flex-direction: column;
-    gap: 0.75rem;
-    align-items: stretch;
+    gap: 1rem;
+    width: 100%;
+    align-items: flex-start; /* 按钮也靠左对齐 */
   }
 
   .buttons :global(.button) {
     width: 100%;
-    min-width: 0;
+    /* 手机端按钮不用太宽，但要高一点方便点击 */
+    padding: 0.9rem 0 !important; 
+    background: rgba(255, 255, 255, 0.15) !important; /* 手机端背景稍微调亮一点点 */
   }
 }
