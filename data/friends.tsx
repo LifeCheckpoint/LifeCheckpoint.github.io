@@ -58,7 +58,7 @@ export const Friends: Friend[] = [
     {
         title: 'HangbaSteve',
         cname: "Hangba",
-        description: 'SST.Major,SoA,HITSZ',
+        description: 'Planet Science🪐HITSZ',
         website: 'https://hangba.github.io/',
         avatar: 'https://avatars.githubusercontent.com/u/36891442?v=4',
         tips: "My God! It's full of stars!"
