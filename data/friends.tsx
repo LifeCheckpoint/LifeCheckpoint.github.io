@@ -54,7 +54,15 @@ export const Friends: Friend[] = [
         website: 'https://timedegree.cc',
         avatar: 'https://avatars.githubusercontent.com/u/64592686?v=4',
         tips: '夢のように愛して 愛のように夢をみて'
-    }
+    },
+    {
+        title: 'HangbaSteve',
+        cname: "Hangba",
+        description: 'SST.Major,SoA,HITSZ',
+        website: 'https://hangba.github.io/',
+        avatar: 'https://avatars.githubusercontent.com/u/36891442?v=4',
+        tips: "My God! It's full of stars!"
+    },
 ]
 
 export type Friend = {
